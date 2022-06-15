@@ -14,8 +14,8 @@ class CommentSpider(scrapy.Spider):
        for movie in movies:
            url = movie['detail_url'] + "comments?start=0&limit=600&status=P&sort=time"
            yield scrapy.Request(url=url, callback=self.parse)
-        #    url = movie['detail_url'] + "comments?start=0&limit=600&status=P&sort=new_score"
-        #    yield scrapy.Request(url=url, callback=self.parse)
+            url = movie['detail_url'] + "comments?start=0&limit=600&status=P&sort=new_score"
+            yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
         item = DoubanComment()
